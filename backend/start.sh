@@ -1,24 +1,39 @@
 #!/bin/bash
-if [ -f .env ]; then
-    export $(cat .env | grep -v '^#' | xargs)
-fi
-
+cd backend/
+ 
+echo "DATABASE_URL=${DATABASE_URL}" >> .env
+echo "DATABASE_USERNAME=${DATABASE_USERNAME}" >> .env
+echo "DATABASE_PASSWORD=${DATABASE_PASSWORD}" >> .env
+echo "PORT=${PORT}" >> .env
+ 
 if [ -z "$PORT" ]; then
-    echo "Error: PORT variable is not set in .env file"
     exit 1
 fi
-
-
+ 
 echo "Stopping process running on port $PORT..."
 sudo lsof -t -i:$PORT -sTCP:LISTEN | xargs -r kill
-
-
-echo "Starting your application..."
+ 
+ 
+echo "Starting application..."
 git checkout main
 git pull
-
+ 
 rm -rf target
-
+ 
 mvn clean package -DskipTests
-
-java -jar target/backend-0.0.1-SNAPSHOT.jar
+ 
+nohup java -jar target/backend-0.0.1-SNAPSHOT.jar > nohup.out 2>&1 &
+ 
+check_application_started() {
+    if grep -q "Started BackendApplication" nohup.out; then
+        echo "Spring Boot application started successfully."
+        exit 0
+    fi
+}
+ 
+while ! grep -q "Started BackendApplication" nohup.out; do
+    echo "Waiting for the Spring Boot application to start..."
+    sleep 1
+done
+ 
+echo "Spring Boot application started successfully."
