@@ -306,6 +306,11 @@
 		{
 			"key": "host",
 			"value": "localhost:9999"
+		},
+		{
+			"key": "xx",
+			"value": "camilletouron.fr:9999",
+			"type": "string"
 		}
 	]
 }

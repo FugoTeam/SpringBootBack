@@ -20,7 +20,7 @@ import static com.fugoworld.backend.service.PasswordService.isSecurePassword;
 
 @RestController
 @CrossOrigin
-@RequestMapping(value={"/fugoworld"})
+@RequestMapping(value={"/api/fugoworld"})
 public class UserController {
     @Autowired
     UserRepository userRepository;
