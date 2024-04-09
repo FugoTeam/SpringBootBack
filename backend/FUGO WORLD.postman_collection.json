@@ -1,0 +1,311 @@
+{
+	"info": {
+		"_postman_id": "f2b1efc8-4657-4e7b-b564-1f6610aca855",
+		"name": "FUGO WORLD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23914870",
+		"_collection_link": "https://solar-firefly-17888.postman.co/workspace/RE%252F%252FSAY~7180eaca-fd67-4813-8798-2d34126e11ee/collection/23914870-f2b1efc8-4657-4e7b-b564-1f6610aca855?action=share&source=collection_link&creator=23914870"
+	},
+	"item": [
+		{
+			"name": "USER",
+			"item": [
+				{
+					"name": "CREATE USER",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"firstname\": \"John\",\n  \"lastname\": \"Doe\",\n  \"city\": \"New York\",\n  \"email\": \"johndoe@example.com\",\n  \"password\": \"securepassword123\"\n}\n"
+						},
+						"url": {
+							"raw": "{{host}}/fugoworld/user",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"fugoworld",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL USERS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{host}}/fugoworld/users",
+							"protocol": "http",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"fugoworld",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET USET BY ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/fugoworld/user/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"fugoworld",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET USER BY NAME",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/fugoworld/user/John/Doe",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"fugoworld",
+								"user",
+								"John",
+								"Doe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET USER BY EMAIL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/fugoworld/user/mail/johndoe@example.com",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"fugoworld",
+								"user",
+								"mail",
+								"johndoe@example.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE USER",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/fugoworld/user/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"fugoworld",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE USER FIRSTNAME",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"firstname\": \"Marco\" }"
+						},
+						"url": {
+							"raw": "{{host}}/fugoworld/user/firstname/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"fugoworld",
+								"user",
+								"firstname",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE USER LASTNAME",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"lastname\": \"Paulin\" }"
+						},
+						"url": {
+							"raw": "{{host}}/fugoworld/user/lastname/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"fugoworld",
+								"user",
+								"lastname",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE USER PASSWORD",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"password\": \"NewPassword123!\" }"
+						},
+						"url": {
+							"raw": "{{host}}/fugoworld/user/password/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"fugoworld",
+								"user",
+								"password",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGIN",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mail\": \"johndoe@example.com\",\n    \"password\": \"NewPassword123!\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/fugoworld/user/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"fugoworld",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGOUT",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mail\": \"johndoe@example.com\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/fugoworld/user/logout",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"fugoworld",
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost:9999"
+		}
+	]
+}
